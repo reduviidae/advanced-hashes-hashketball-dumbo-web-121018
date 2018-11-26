@@ -157,17 +157,32 @@ def team_names
 end
 
 def player_numbers(team_name)
+  jersey_array = []
   game_hash.map do |team, info|
     # binding.pry
     if team_name == info[:team_name]
       info[:players].map do |player, stats|
-        stats[:number]
+        # binding.pry
+        jersey_array << stats[:number]
+      end
+    end
+  end
+  jersey_array
+end
+
+def player_stats(name)
+  game_hash.map do |team, info|
+    info[:players].map do |player, stats|
+      # binding.pry
+      if name == player 
+        # binding.pry
+        return stats
       end
     end
   end
 end
 
-
-
-
+def big_shoe_rebounds
+  
+end
 
