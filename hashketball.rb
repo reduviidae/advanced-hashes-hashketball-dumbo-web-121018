@@ -118,8 +118,8 @@ end
 
 def num_points_scored(name)
   # binding.pry
-  game_hash.map do |team, info|
-    info[:players].map do |player, stats|
+  game_hash.each do |team, info|
+    info[:players].each do |player, stats|
       # binding.pry
       if name == player 
         # binding.pry
@@ -195,4 +195,18 @@ def big_shoe_rebounds
   end
   rebounds
 end
+
+def player_by_number(number)
+  game_hash.each do |team, info|
+    # binding.pry
+    info[:players].each do |player, stats|
+      # binding.pry
+      if stats[:number] == number
+        return player
+      end
+    end
+  end
+end
+
+player_by_number(33)
 
